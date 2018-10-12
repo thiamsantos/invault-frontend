@@ -3,6 +3,7 @@ const DotenvPlugin = require('dotenv-webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const isCI = require('is-ci')
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -15,7 +16,7 @@ module.exports = {
   resolve: {aliasFields: ['browser']},
   devtool: isProd ? false : 'cheap-module-source-map',
   plugins: [
-    new CleanWebpackPlugin(['public/static', 'public/index.html']),
+    new CleanWebpackPlugin(['public/static/*.js', 'public/index.html']),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       filename: path.resolve(__dirname, 'public/index.html')
@@ -25,7 +26,8 @@ module.exports = {
       systemvars: true,
       silent: isCI
     }),
-    new LodashModuleReplacementPlugin()
+    new LodashModuleReplacementPlugin(),
+    new FaviconsWebpackPlugin(path.resolve(__dirname, 'logo.png'))
   ],
   optimization: {
     splitChunks: {
