@@ -4,6 +4,7 @@ import SaveIcon from '@material-ui/icons/Save'
 import {Link} from 'react-router-dom'
 import {Query} from 'react-apollo'
 import gql from 'graphql-tag'
+import {getText} from '../core/intl'
 
 const PIKACHU_QUERY = gql`
   {
@@ -25,9 +26,9 @@ const Pikachu = () => (
 
       return (
         <div>
-          <p>ID: {id}</p>
-          <p>Number: {number}</p>
-          <p>Name: {name}</p>
+          <p>{getText('en', 'home.pokemon.id', [id])}</p>
+          <p>{getText('en', 'home.pokemon.number', [number])}</p>
+          <p>{getText('en', 'home.pokemon.name', [name])}</p>
         </div>
       )
     }}
@@ -36,10 +37,11 @@ const Pikachu = () => (
 
 const Home = () => (
   <div>
+    <h1>{getText('en', 'home.title')}</h1>
     <Pikachu />
     <Link to="/about">
       <Button variant="contained" color="primary">
-        about
+        {getText('en', 'home.aboutLink')}
         <SaveIcon />
       </Button>
     </Link>
