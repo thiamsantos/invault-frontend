@@ -1,7 +1,6 @@
 import React from 'react'
-import {Home, About} from './routes'
-
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {Home, About} from './routes'
 
 const App = () => (
   <Router>
