@@ -27,6 +27,17 @@ module.exports = {
     }),
     new LodashModuleReplacementPlugin()
   ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          name: 'vendor',
+          chunks: 'all',
+          minChunks: 2
+        }
+      }
+    }
+  },
   module: {
     rules: [
       {

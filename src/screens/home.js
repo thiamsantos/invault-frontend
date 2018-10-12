@@ -4,6 +4,7 @@ import SaveIcon from '@material-ui/icons/Save'
 import {Link} from 'react-router-dom'
 import {Query} from 'react-apollo'
 import gql from 'graphql-tag'
+import {Helmet} from 'react-helmet'
 import {getText} from '../core/intl'
 
 const PIKACHU_QUERY = gql`
@@ -37,6 +38,9 @@ const Pikachu = () => (
 
 const Home = () => (
   <div>
+    <Helmet>
+      <title>{getText('en', 'home.title')}</title>
+    </Helmet>
     <h1>{getText('en', 'home.title')}</h1>
     <Pikachu />
     <Link to="/about">
