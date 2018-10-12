@@ -1,24 +1,9 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
-import SaveIcon from '@material-ui/icons/Save'
+import {Home, About} from './routes'
 
-import { BrowserRouter as Router, Route, Link,Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route,Switch } from "react-router-dom"
 
-const Home = () => (
-  <div>
-<Link to="/about"><Button variant="contained" color="primary">
-  about<SaveIcon/>
-</Button></Link>
-</div>
-);
 
-const About = () => (
-  <div>
-    <h2>About</h2>
-<Link to="/">home</Link>
-
-  </div>
-);
 
 
 const App = () => (
