@@ -2,6 +2,7 @@ const path = require('path')
 const DotenvPlugin = require('dotenv-webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const isCI = require('is-ci')
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -23,19 +24,9 @@ module.exports = {
       safe: true,
       systemvars: true,
       silent: isCI
-    })
+    }),
+    new LodashModuleReplacementPlugin()
   ],
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          name: 'vendor',
-          chunks: 'all',
-          minChunks: 2
-        }
-      }
-    }
-  },
   module: {
     rules: [
       {
