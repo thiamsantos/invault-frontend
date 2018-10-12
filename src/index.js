@@ -1,2 +1,5 @@
-console.log(process.env.INVAULT_URL)
-console.log(process.env.NODE_ENV)
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './app'
+
+ReactDOM.render(<App />, document.getElementById('app'))

@@ -8,7 +8,8 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, 'src/index.js')
+    app: path.resolve(__dirname, 'src/index.js'),
+    vendor: ['@babel/polyfill', 'react', 'react-dom']
   },
   resolve: {aliasFields: ['browser']},
   devtool: isProd ? false : 'cheap-module-source-map',
