@@ -49,7 +49,18 @@ const Home = () => (
         <SaveIcon />
       </Button>
     </Link>
+
+    <Link to="/register">
+      <Button variant="contained" color="primary">
+        {getText('en', 'home.registerLink')}
+        <SaveIcon />
+      </Button>
+    </Link>
+
+
   </div>
 )
 
 export default Home
+
+

@@ -5,6 +5,7 @@ const texts = {
     home: {
       title: () => 'Home',
       aboutLink: () => 'Go to about',
+      registerLink: () => 'Create an account',
       pokemon: {
         id: id => `ID: ${id}`,
         name: name => `Name: ${name}`,
@@ -13,6 +14,10 @@ const texts = {
     },
     about: {
       title: () => 'About',
+      homeLink: () => 'Go to home'
+    },
+    register: {
+      title: () => 'Register',
       homeLink: () => 'Go to home'
     }
   }

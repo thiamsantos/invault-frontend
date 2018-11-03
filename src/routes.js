@@ -12,3 +12,8 @@ export const About = Loadable({
   loader: () => import('./screens/about'),
   loading: Loading
 })
+
+export const Register = Loadable({
+  loader: () => import('./screens/register'),
+  loading: Loading
+})
