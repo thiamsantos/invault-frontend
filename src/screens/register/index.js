@@ -113,21 +113,19 @@ class Register extends React.Component {
           }, 400)
         }}
       >
-        {(
-          {
-            /* Values, */
-            /* errors, */
-            /* touched, */
-            /* handleChange, */
-            /* handleBlur, */
-            handleSubmit,
-            isSubmitting
-            /* And other goodies */
-          }
-        ) => (
+        {({
+          /* Values, */
+          /* errors, */
+          /* touched, */
+          /* handleChange, */
+          /* handleBlur, */
+          handleSubmit,
+          isSubmitting
+          /* And other goodies */
+        }) => (
           <form onSubmit={handleSubmit}>
             <div className={classes.root}>
-              <Stepper activeStep={activeStep} alternativeLabel>
+              <Stepper alternativeLabel activeStep={activeStep}>
                 {currentStep.map(label => {
                   return (
                     <Step key={label}>
@@ -155,8 +153,8 @@ class Register extends React.Component {
                     <div>
                       <Button
                         disabled={activeStep === 0}
-                        onClick={this.handleBack}
                         className={classes.backButton}
+                        onClick={this.handleBack}
                       >
                         Back
                       </Button>

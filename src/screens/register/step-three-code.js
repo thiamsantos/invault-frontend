@@ -5,9 +5,9 @@ import Button from '@material-ui/core/Button'
 const StepThree = () => (
   <div>
     <TextField
+      multiline
       id="outlined-multiline-static"
       label="Recovery Code"
-      multiline
       rows="4"
       defaultValue="Default Value"
       className="textfield"

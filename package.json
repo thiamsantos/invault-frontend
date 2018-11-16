@@ -87,8 +87,8 @@
       "react/jsx-one-expression-per-line": 0,
       "react/button-has-type": 0,
       "react/forbid-component-props": 0,
-    "react/prop-types": 0,
-    "react/require-default-props": 0,
+      "react/prop-types": 0,
+      "react/require-default-props": 0,
       "import/no-unresolved": 1,
       "new-cap": 0
     },
