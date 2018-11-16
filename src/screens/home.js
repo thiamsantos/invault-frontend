@@ -41,8 +41,11 @@ const Home = () => (
     <Helmet>
       <title>{getText('en', 'home.title')}</title>
     </Helmet>
+
     <h1>{getText('en', 'home.title')}</h1>
+
     <Pikachu />
+
     <Link to="/about">
       <Button variant="contained" color="primary">
         {getText('en', 'home.aboutLink')}
@@ -56,11 +59,7 @@ const Home = () => (
         <SaveIcon />
       </Button>
     </Link>
-
-
   </div>
 )
 
 export default Home
-
-
