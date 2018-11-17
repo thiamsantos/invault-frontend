@@ -1,11 +1,12 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField'
+import {getText} from '../../../core/intl'
 
 const StepOne = ({handleChange, handleBlur, values, errors, touched}) => (
   <div>
     <div>
       <TextField
-        label="Name"
+        label={getText('en', 'register.form.name.label')}
         name="name"
         value={values.name}
         error={Boolean(touched.name) && Boolean(errors.name)}
@@ -16,7 +17,7 @@ const StepOne = ({handleChange, handleBlur, values, errors, touched}) => (
     </div>
     <div>
       <TextField
-        label="Email"
+        label={getText('en', 'register.form.email.label')}
         name="email"
         value={values.email}
         error={Boolean(touched.email) && Boolean(errors.email)}

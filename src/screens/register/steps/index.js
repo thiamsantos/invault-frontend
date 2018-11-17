@@ -1,11 +1,11 @@
 import React from 'react'
 import MobileStepper from '@material-ui/core/MobileStepper'
 import Button from '@material-ui/core/Button'
+import {getText} from '../../../core/intl'
 import StepOne from './step-one'
 import StepTwo from './step-two'
 import StepThree from './step-three'
 import StepFour from './step-four'
-import {getText} from '../../../core/intl'
 
 const steps = [StepOne, StepTwo, StepThree, StepFour]
 
@@ -56,7 +56,9 @@ class Steps extends React.Component {
               color="primary"
               onClick={this.handleNext}
             >
-              {this.state.currentStep === steps.length - 1 ? getText('en', 'register.stepper.finish') : getText('en', 'register.stepper.next')}
+              {this.state.currentStep === steps.length - 1
+                ? getText('en', 'register.stepper.finish')
+                : getText('en', 'register.stepper.next')}
             </Button>
           }
           backButton={

@@ -1,8 +1,8 @@
 import React from 'react'
 import {Formik} from 'formik'
+import {getText} from '../../core/intl'
 import Success from './success'
 import Steps from './steps'
-import {getText} from '../../core/intl'
 
 const Register = () => (
   <Formik
@@ -11,31 +11,46 @@ const Register = () => (
       const errors = {}
 
       if (!values.email) {
-        errors.email = getText('en', 'register.form.validation.email.required')
+        errors.email = getText('en', 'register.form.email.validation.required')
       } else if (!/@/.test(values.email)) {
-        errors.email = getText('en', 'register.form.validation.email.invalid')
+        errors.email = getText('en', 'register.form.email.validation.invalid')
       } else if (values.email.length > 255) {
-        errors.email = getText('en', 'register.form.validation.email.tooLong')
+        errors.email = getText('en', 'register.form.email.validation.tooLong')
       }
 
       if (!values.name) {
-        errors.name = getText('en', 'register.form.validation.name.required')
+        errors.name = getText('en', 'register.form.name.validation.required')
       } else if (values.name.length > 255) {
-        errors.name = getText('en', 'register.form.validation.name.tooLong')
+        errors.name = getText('en', 'register.form.name.validation.tooLong')
       }
 
       if (!values.password) {
-        errors.password =  getText('en', 'register.form.validation.password.required')
+        errors.password = getText(
+          'en',
+          'register.form.password.validation.required'
+        )
       } else if (values.password.length < 10) {
-        errors.password = getText('en', 'register.form.validation.password.tooShort')
+        errors.password = getText(
+          'en',
+          'register.form.password.validation.tooShort'
+        )
       } else if (values.password.length > 255) {
-        errors.password = getText('en', 'register.form.validation.password.tooLong')
+        errors.password = getText(
+          'en',
+          'register.form.password.validation.tooLong'
+        )
       }
 
       if (!values.totpCode) {
-        errors.totpCode = getText('en', 'register.form.validation.totpCode.required')
+        errors.totpCode = getText(
+          'en',
+          'register.form.totpCode.validation.required'
+        )
       } else if (values.totpCode.length !== 6) {
-        errors.totpCode = getText('en', 'register.form.validation.totpCode.invalid')
+        errors.totpCode = getText(
+          'en',
+          'register.form.totpCode.validation.invalid'
+        )
       }
 
       return errors
