@@ -5,6 +5,7 @@ import StepOne from './step-one'
 import StepTwo from './step-two'
 import StepThree from './step-three'
 import StepFour from './step-four'
+import {getText} from '../../../core/intl'
 
 const steps = [StepOne, StepTwo, StepThree, StepFour]
 
@@ -55,12 +56,12 @@ class Steps extends React.Component {
               color="primary"
               onClick={this.handleNext}
             >
-              {this.state.currentStep === steps.length - 1 ? 'Finish' : 'Next'}
+              {this.state.currentStep === steps.length - 1 ? getText('en', 'register.stepper.finish') : getText('en', 'register.stepper.next')}
             </Button>
           }
           backButton={
             <Button disabled={this.hasBackStep()} onClick={this.handleBack}>
-              Back
+              {getText('en', 'register.stepper.back')}
             </Button>
           }
         />

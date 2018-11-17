@@ -40,6 +40,11 @@ const texts = {
             invalid: () => 'Invalid code'
           }
         }
+      },
+      stepper: {
+        back: 'Back',
+        next: 'Next',
+        finish: 'Submit'
       }
     }
   }
