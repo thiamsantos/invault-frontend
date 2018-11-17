@@ -18,7 +18,44 @@ const texts = {
     },
     register: {
       title: () => 'Register',
-      homeLink: () => 'Go to home'
+      homeLink: () => 'Go to home',
+      form: {
+        email: {
+          label: () => 'Email',
+          validation: {
+            required: () => 'Required',
+            invalid: () => 'Invalid email address',
+            tooLong: () => 'Has more than 255 characters'
+          }
+        },
+        name: {
+          label: () => 'Name',
+          validation: {
+            required: () => 'Required',
+            tooLong: () => 'Has more than 255 characters'
+          }
+        },
+        password: {
+          label: () => 'Master Password',
+          validation: {
+            required: () => 'Required',
+            tooShort: () => 'Has less than 10 characters',
+            tooLong: () => 'Has more than 255 characters'
+          }
+        },
+        totpCode: {
+          label: () => 'Verification Code',
+          validation: {
+            required: () => 'Required',
+            invalid: () => 'Invalid code'
+          }
+        }
+      },
+      stepper: {
+        back: () => 'Back',
+        next: () => 'Next',
+        finish: () => 'Submit'
+      }
     }
   }
 }
