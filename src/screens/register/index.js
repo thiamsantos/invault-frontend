@@ -2,6 +2,7 @@ import React from 'react'
 import {Formik} from 'formik'
 import Success from './success'
 import Steps from './steps'
+import {getText} from '../../core/intl'
 
 const Register = () => (
   <Formik
@@ -10,31 +11,31 @@ const Register = () => (
       const errors = {}
 
       if (!values.email) {
-        errors.email = 'Required'
+        errors.email = getText('en', 'register.form.validation.email.required')
       } else if (!/@/.test(values.email)) {
-        errors.email = 'Invalid email address'
+        errors.email = getText('en', 'register.form.validation.email.invalid')
       } else if (values.email.length > 255) {
-        errors.email = 'Has more than 255 characters'
+        errors.email = getText('en', 'register.form.validation.email.tooLong')
       }
 
       if (!values.name) {
-        errors.name = 'Required'
+        errors.name = getText('en', 'register.form.validation.name.required')
       } else if (values.name.length > 255) {
-        errors.name = 'Has more than 255 characters'
+        errors.name = getText('en', 'register.form.validation.name.tooLong')
       }
 
       if (!values.password) {
-        errors.password = 'Required'
+        errors.password =  getText('en', 'register.form.validation.password.required')
       } else if (values.password.length < 10) {
-        errors.password = 'Has less than 10 characters'
+        errors.password = getText('en', 'register.form.validation.password.tooShort')
       } else if (values.password.length > 255) {
-        errors.password = 'Has more than 255 characters'
+        errors.password = getText('en', 'register.form.validation.password.tooLong')
       }
 
       if (!values.totpCode) {
-        errors.totpCode = 'Required'
+        errors.totpCode = getText('en', 'register.form.validation.totpCode.required')
       } else if (values.totpCode.length !== 6) {
-        errors.totpCode = 'Invalid code'
+        errors.totpCode = getText('en', 'register.form.validation.totpCode.invalid')
       }
 
       return errors
