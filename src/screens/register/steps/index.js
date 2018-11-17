@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import MobileStepper from '@material-ui/core/MobileStepper'
 import Button from '@material-ui/core/Button'
 import {getText} from '../../../core/intl'
@@ -9,67 +9,47 @@ import StepFour from './step-four'
 
 const steps = [StepOne, StepTwo, StepThree, StepFour]
 
-class Steps extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {currentStep: 0}
-    this.handleNext = this.handleNext.bind(this)
-    this.handleBack = this.handleBack.bind(this)
-  }
+const Steps = props => {
+  const [currentStep, setCurrentStep] = useState(0)
+  const isLastStep = currentStep === steps.length - 1
+  const isFirstStep = currentStep === 0
 
-  handleNext() {
-    if (this.state.currentStep === steps.length - 1) {
-      this.props.submitForm()
-      return
+  const CurrentStep = steps[currentStep]
+
+  const handleNext = () => {
+    if (currentStep === steps.length - 1) {
+      props.submitForm()
     }
 
-    this.setState(state => ({
-      currentStep: state.currentStep + 1
-    }))
+    setCurrentStep(currentStep + 1)
   }
 
-  handleBack() {
-    this.setState(state => ({
-      currentStep: state.currentStep - 1
-    }))
-  }
+  const handlePrevious = () => setCurrentStep(currentStep - 1)
 
-  hasBackStep() {
-    return this.state.currentStep === 0
-  }
+  return (
+    <div>
+      <CurrentStep {...props} />
 
-  render() {
-    const CurrentStep = steps[this.state.currentStep]
-
-    return (
-      <div>
-        <CurrentStep {...this.props} />
-
-        <MobileStepper
-          variant="dots"
-          position="static"
-          steps={steps.length}
-          activeStep={this.state.currentStep}
-          nextButton={
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={this.handleNext}
-            >
-              {this.state.currentStep === steps.length - 1
-                ? getText('en', 'register.stepper.finish')
-                : getText('en', 'register.stepper.next')}
-            </Button>
-          }
-          backButton={
-            <Button disabled={this.hasBackStep()} onClick={this.handleBack}>
-              {getText('en', 'register.stepper.back')}
-            </Button>
-          }
-        />
-      </div>
-    )
-  }
+      <MobileStepper
+        variant="dots"
+        position="static"
+        steps={steps.length}
+        activeStep={currentStep}
+        nextButton={
+          <Button variant="contained" color="primary" onClick={handleNext}>
+            {isLastStep
+              ? getText('en', 'register.stepper.finish')
+              : getText('en', 'register.stepper.next')}
+          </Button>
+        }
+        backButton={
+          <Button disabled={isFirstStep} onClick={handlePrevious}>
+            {getText('en', 'register.stepper.back')}
+          </Button>
+        }
+      />
+    </div>
+  )
 }
 
 export default Steps
