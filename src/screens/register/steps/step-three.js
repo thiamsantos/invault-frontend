@@ -1,19 +1,14 @@
 import React from 'react'
-import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
 const StepThree = () => (
   <div>
-    <TextField
-      multiline
-      id="outlined-multiline-static"
-      label="Recovery Code"
-      rows="4"
-      defaultValue="Default Value"
-      className="textfield"
-      margin="normal"
-      variant="outlined"
-    />
+    <div>
+      <p>d1fa1dd4-d399-4823-9b52-33dc6beaa032</p>
+      <p>98c98a9a-fb4b-4c1e-b53c-fd20c219fcbc</p>
+      <p>7bc724df-cb99-4a79-9381-5e6934054364</p>
+      <p>93dfc3d9-e3bf-4217-b7b9-6d81c12325ae</p>
+    </div>
 
     <div>
       <Button variant="contained" className="button">
